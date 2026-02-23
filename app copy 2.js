@@ -1,37 +1,16 @@
 let listaDeNumerosSorteados = [];
-<<<<<<< HEAD
 let numeroLimite = 10;
-=======
-let numeroLimite = 100;
->>>>>>> baab578fd1d28beb2fd102aabfb6e561ffaae67d
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
 function exibirTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
-<<<<<<< HEAD
-    responsiveVoice.speak(texto, 'Brazilian Portuguese Female', {rate:1.2});
-=======
-    if ('speechSynthesis' in window){
-        let utterance = new SpeechSynthesisUtterance(texto);
-        utterance.lang = 'pt-BR';
-        utterance.rate = 1.2;
-        window.speechSynthesis.speak(utterance);
-    } else {
-        console.log("Web Speech API não suportada neste navegador.");
-    }
-    //responsiveVoice.speak(texto, "Brazilian Portuguese Female", {rate: 1.2});
->>>>>>> baab578fd1d28beb2fd102aabfb6e561ffaae67d
 }
 
 function exibirMensagemInicial() {
     exibirTextoNaTela('h1', 'Jogo do número secreto');
-<<<<<<< HEAD
-    exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
-=======
     exibirTextoNaTela('p', `Escolha um número entre 1 e ${numeroLimite}`);
->>>>>>> baab578fd1d28beb2fd102aabfb6e561ffaae67d
 }
 
 exibirMensagemInicial();
@@ -59,17 +38,6 @@ function verificarChute() {
 function gerarNumeroAleatorio() {
     let numeroEscolhido = parseInt(Math.random() * numeroLimite + 1);
     let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length;
-<<<<<<< HEAD
-
-    if (quantidadeDeElementosNaLista == numeroLimite) {
-        listaDeNumerosSorteados = [];
-    }
-    if (listaDeNumerosSorteados.includes(numeroEscolhido)) {
-        return gerarNumeroAleatorio();
-    } else {
-        listaDeNumerosSorteados.push(numeroEscolhido);
-        console.log(listaDeNumerosSorteados)
-=======
     if (quantidadeDeElementosNaLista ==  numeroLimite) { 
         listaDeNumerosSorteados = [];
     }
@@ -77,7 +45,6 @@ function gerarNumeroAleatorio() {
         return gerarNumeroAleatorio();
     } else {
         listaDeNumerosSorteados.push(numeroEscolhido);
->>>>>>> baab578fd1d28beb2fd102aabfb6e561ffaae67d
         return numeroEscolhido;
     }
 }
@@ -94,7 +61,6 @@ function reiniciarJogo() {
     exibirMensagemInicial();
     document.getElementById('reiniciar').setAttribute('disabled', true)
 }
-<<<<<<< HEAD
 
 
 
@@ -102,5 +68,3 @@ function reiniciarJogo() {
 
 
 
-=======
->>>>>>> baab578fd1d28beb2fd102aabfb6e561ffaae67d
