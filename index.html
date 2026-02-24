@@ -14,14 +14,18 @@
 
 <body>
 
+
     <div class="container">
         <div class="container__conteudo">
             <div class="container__informacoes">
                 <div class="container__texto">
+                    <label class="texto__Cima">Tamanho Máximo</label><br>
+                    <input id="inputmaximo" type="number" min="1" max="10" class="container__input2">
+                    <button onclick="definirMaximo()" class="container__botao">Definir</button>
                     <h1>Adivinhe o <span class="container__texto-azul">numero secreto</span></h1>
                     <p class="texto__paragrafo">Escolha um número entre 1 a 100</p>
                 </div>
-                <input type="number" min="1" max="10" class="container__input">
+                <input id="inputChute" type="number" min="1" max="10" class="container__input">
                 <div class="chute container__botoes">
                     <button onclick="verificarChute()" class="container__botao">Chutar</button>
                     <button onclick="reiniciarJogo()" id="reiniciar" class="container__botao" disabled>Novo jogo</button>

@@ -1,6 +1,32 @@
 let listaDeNumerosSorteados = [];
 let numeroLimite = 100;
 let numeroSecreto = gerarNumeroAleatorio();
+
+function definirMaximo() {
+    let valorInput = document.querySelector('#inputmaximo').value;
+
+    if (valorInput === '') {
+        return;
+    }
+
+    valorInput = Number(valorInput);
+
+    if (isNaN(valorInput) || valorInput < 1) {
+        alert("Digite um número válido.");
+        return;
+    }
+
+    numeroLimite = valorInput;
+
+    listaDeNumerosSorteados = []; // 👈 LIMPA A LISTA
+    numeroSecreto = Number(gerarNumeroAleatorio());
+    tentativas = 1; // 👈 REINICIA TENTATIVAS
+    limparCampo();
+    exibirMensagemInicial();
+
+    return numeroSecreto;
+}
+
 let tentativas = 1;
 
 function exibirTextoNaTela(tag, texto) {
@@ -24,8 +50,11 @@ function exibirMensagemInicial() {
 exibirMensagemInicial();
 
 function verificarChute() {
-    let chute = document.querySelector('input').value;
-    
+    let chute = Number(document.querySelector('#inputChute').value);
+
+    //alert(`${chute} = ${numeroSecreto}`);
+    //alert(numeroLimite);
+
     if (chute == numeroSecreto) {
         exibirTextoNaTela('h1', 'Acertou!');
         let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
@@ -54,16 +83,17 @@ function gerarNumeroAleatorio() {
         return gerarNumeroAleatorio();
     } else {
         listaDeNumerosSorteados.push(numeroEscolhido);
-        console.log(listaDeNumerosSorteados)
+        //console.log(listaDeNumerosSorteados)
         return numeroEscolhido;
     }
 }
 
 function limparCampo() {
-    chute = document.querySelector('input');
+    let chute = document.querySelector('#inputChute');
     chute.value = '';
+   let NumeroMaximo = document.querySelector('#inputmaximo');
+    NumeroMaximo.value = '';
 }
-
 function reiniciarJogo() {
     numeroSecreto = gerarNumeroAleatorio();
     limparCampo();
